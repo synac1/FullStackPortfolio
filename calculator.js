@@ -1,6 +1,6 @@
 function display(data){
     document.getElementById('screen').value +=data;
-    return data
+    return data;
 }
 
 function solve(){
@@ -8,5 +8,8 @@ function solve(){
     let data = screen.value;
     let result = eval(data);
     screen.value= result;
-    return result;
+}
+function clearScreen(){
+    let screen = document.getElementById('screen');
+    screen.value= "";
 }
