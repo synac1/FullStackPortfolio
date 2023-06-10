@@ -8,36 +8,27 @@
     </head>
     <body>
         <h1>Hotels</h1>
-        <div style="display: block;">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hotel">
-            <div class="card-body">
-                <h3 id="hotel1"></h3>
-            </div>
+        <div style="display: flex;" id="hotels" >
         </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Card image cap">
-            <div class="card-body">
-                <h3 id="hotel2"></h3>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.pexels.com/photos/3124079/pexels-photo-3124079.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Card image cap">
-            <div class="card-body">
-                <h3 id="hotel3"></h3>
-            </div>
-        </div>
-    </div>
-        <script>
-            var trumpHotel = new Hotel('Trump Tower', 50, 40);
-            var dreamHotel = new Hotel("Dream", 250, 50); 
-            var mariotHotel = new Hotel ("Mariot", 200, 100); 
 
-            var hotelName1 = document.getElementById("hotel1")         
-            hotelName1.innerHTML = trumpHotel.name;
-            document.getElementById("hotel2").innerHTML = dreamHotel.name;
-            document.getElementById("hotel3").innerHTML = mariotHotel.name;
+        <script>
+            var trumpHotel = new Hotel('Trump Tower', 50, 40, "https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=800");
+            var dreamHotel = new Hotel("Dream", 250, 50, "https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=800"); 
+            var mariotHotel = new Hotel ("Mariot", 200, 100,"https://images.pexels.com/photos/3124079/pexels-photo-3124079.jpeg?auto=compress&cs=tinysrgb&w=800"); 
+          
             
+            var hotelList = [trumpHotel, dreamHotel, mariotHotel];
+          
+            var content = document.getElementById("hotels");
+
+            hotelList.map((data)=>{
+                var node =  document.createElement("div");
+                node.className="card";
+                node.style ="width: 18rem";
+                node.innerHTML="<img src="+data.picture+" > <div class='card-body'>"+data.name+"</div>"
+                content.appendChild(node);            
+            })
+
 
         </script>
     </body>
