@@ -1,0 +1,27 @@
+.nav-elements ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+.navbar{
+    background-color: antiquewhite;
+    height: 80px;
+    position: relative;
+    min-width: 100%;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.nav-elements ul a {
+    text-decoration: none;
+    margin: 1px;
+}
+.nav-elements ul li{
+    margin-right: unset;
+}

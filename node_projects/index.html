@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <h1 id="message"></h1>
+        <button onclick="getPhrase()">Get Random Phrase</button>
+        <div id="phrase"></div>
+        <button onclick="getCatBoy()"> Get Random catboy Image</button>
+        <div>
+            <img id="cat-image">
+        </div>
+        <script>
+            function getPhrase() {
+                fetch("https://corporatebs-generator.sameerkumar.website/")
+                .then((data)=>{
+                    return data.json()
+                }).then((phrase)=>{
+                    let message= phrase.phrase
+                    console.log(JSON.stringify(message))
+                    document.getElementById("phrase").innerHTML=JSON.stringify(message)
+                }
+                )
+            }
+     
+            function getCatBoy(){
+                fetch("https://api.catboys.com/img")
+                .then((data)=>{
+                    return data.json()
+                }).then((image)=>{
+                    let imagelink= image.url 
+                    document.getElementById("cat-image").src=imagelink
+                }
+                )
+            }
+            let hoursNow = new Date().getHours()
+            
+            let greetings = [
+                "Good Morning",
+                "Good Afternoon",
+                "Good Evening"
+            ]
+            let message = document.getElementById("message")
+            if (hoursNow >= 18){
+                message.innerHTML =greetings[2]
+            }
+            else if(hoursNow >= 12){
+                message.innerHTML =greetings[1]
+            }else{
+                message.innerHTML =greetings[0]
+            }
+
+        </script>
+    </body>
+</html>
